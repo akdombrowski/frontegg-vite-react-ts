@@ -1,0 +1,1 @@
+# frontegg-vite-react-ts
