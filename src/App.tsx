@@ -4,7 +4,7 @@ import viteLogo from "/vite.svg";
 import fronteggLogo from "/frontegg.svg";
 import "./App.css";
 
-import { useAuth, useLoginWithRedirect, ContextHolder } from "@frontegg/react";
+import { useAuth, useLoginWithRedirect } from "@frontegg/react";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -12,8 +12,7 @@ function App() {
   const { user, isAuthenticated } = useAuth();
   const loginWithRedirect = useLoginWithRedirect();
   const logout = () => {
-    const baseUrl = ContextHolder.getContext().baseUrl;
-    window.location.href = `${baseUrl}/oauth/logout?post_logout_redirect_uri=${window.location}`;
+    window.location.href = `${__FRONTEGG_BASE_URL__}/oauth/logout?post_logout_redirect_uri=${window.location}`;
   };
 
   return (
