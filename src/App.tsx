@@ -12,7 +12,9 @@ function App() {
   const { user, isAuthenticated } = useAuth();
   const loginWithRedirect = useLoginWithRedirect();
   const logout = () => {
-    window.location.href = `${__FRONTEGG_BASE_URL__}/oauth/logout?post_logout_redirect_uri=${window.location}`;
+    window.location.href = `${
+      import.meta.env.VITE_FRONTEGG_BASE_URL
+    }/oauth/logout?post_logout_redirect_uri=${window.location.href}`;
   };
 
   return (

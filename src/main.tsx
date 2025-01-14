@@ -6,9 +6,9 @@ import App from "./App.tsx";
 import { FronteggProvider } from "@frontegg/react";
 
 const contextOptions = {
-  baseUrl: __FRONTEGG_BASE_URL__,
-  clientId: __FRONTEGG_CLIENT_ID__,
-  appId: __FRONTEGG_APP_ID__,
+  baseUrl: import.meta.env.VITE_FRONTEGG_BASE_URL,
+  clientId: import.meta.env.VITE_FRONTEGG_CLIENT_ID,
+  appId: import.meta.env.VITE_FRONTEGG_APP_ID,
 };
 
 const authOptions = {
