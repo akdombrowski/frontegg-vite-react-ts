@@ -60,7 +60,7 @@ function App() {
           </p>
         </div>
         <div className="inlineEl">
-          {isAuthenticated ? (
+          {isAuthenticated ?
             <>
               <button onClick={() => logout()}>Logout</button>
               <p>
@@ -69,8 +69,7 @@ function App() {
                 {user?.email}!
               </p>
             </>
-          ) : (
-            <>
+          : <>
               <button onClick={() => loginWithRedirect()}>Login</button>
 
               <a
@@ -80,7 +79,7 @@ function App() {
                 <p>Add Authentication with Frontegg</p>
               </a>
             </>
-          )}
+          }
         </div>
       </div>
       <p className="read-the-docs">Click on the Vite, React, or Frontegg logos to learn more</p>
