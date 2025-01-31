@@ -12,7 +12,9 @@ function App() {
   const { user, isAuthenticated } = useAuth();
   const loginWithRedirect = useLoginWithRedirect();
   const logout = () => {
-    window.location.href = `${__FRONTEGG_BASE_URL__}/oauth/logout?post_logout_redirect_uri=${window.location}`;
+    window.location.href = `${
+      import.meta.env.VITE_FRONTEGG_BASE_URL
+    }/oauth/logout?post_logout_redirect_uri=${window.location.href}`;
   };
 
   return (
@@ -58,7 +60,7 @@ function App() {
           </p>
         </div>
         <div className="inlineEl">
-          {isAuthenticated ? (
+          {isAuthenticated ?
             <>
               <button onClick={() => logout()}>Logout</button>
               <p>
@@ -67,8 +69,7 @@ function App() {
                 {user?.email}!
               </p>
             </>
-          ) : (
-            <>
+          : <>
               <button onClick={() => loginWithRedirect()}>Login</button>
 
               <a
@@ -78,7 +79,7 @@ function App() {
                 <p>Add Authentication with Frontegg</p>
               </a>
             </>
-          )}
+          }
         </div>
       </div>
       <p className="read-the-docs">Click on the Vite, React, or Frontegg logos to learn more</p>
