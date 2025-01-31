@@ -192,6 +192,11 @@ Hit the dreaded `redirect_uri` not found error? Don't worry, everyone using OAut
 
 First, check that everything looks as expected from the step above in the `Configuring Frontegg` section: [*Don't forget to add your `redirect_uri`!*](#dont-forget-to-add-your-redirect-uri)
 
+### User is not associated with the requested application
+
+This means the User you tried signing in with belongs to an Account which doesn't have the Application linked. In other words, the Application with the corresponding App ID you used for the `Client ID` in the environment variables needs to be assigned to an Account which the User belongs to.
+If you're user does belong to an Account where the Application is linked. Find the User and open the context menu (3 dots at the end of the User's row) and click `Edit applications` and assign the corresponding Application. This can happen if the Application is assigned to the Account *after* the User was already added there.
+
 ## Resources
 
 ### Frontegg
