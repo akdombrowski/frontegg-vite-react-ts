@@ -18,19 +18,17 @@ The app is bootstrapped with [Vite](https://vite.dev/) and their
 
 ### Frontegg Application Configuration
 
-[Create](https://developers.frontegg.com/guides/management/multi-apps/overview#create-and-configure) or start with an existing Frontegg Application.
-And, configure as follows:
+[Create](https://developers.frontegg.com/guides/management/multi-apps/overview#create-and-configure) or start with an existing *Frontegg Application*.
+And, configure the following options:
 
-- **Type = `Web`**
-- **Frontend stack = `React`**
-- **App URL = `http://localhost:5173`**
-
+- **Type** = `Web`
+- **Frontend stack** = `React`
+- **App URL** = `http://localhost:5173`
   - the url should match the url where you're app is running
-  - `http://localhost:5173` is the default url in Vite in development mode,
-    modify as needed
+  - `http://localhost:5173` is the default url in Vite in development mode (aka `npm run dev`)
 
   <details>
-   <summary>Create a new application config in the dashboard</summary>
+   <summary>Creating a new application config in the dashboard</summary>
    <picture>
       <source srcset="public/readme/CreateNewApplicationConfig.webp 284w, public/readme/CreateNewApplicationConfig-2x.webp 451w" sizes="(max-width: 800px) 284px, 451px" type="image/webp" />
       <img srcset="public/readme/CreateNewApplicationConfig.png 284w, public/readme/CreateNewApplicationConfig-2x.png 451w" sizes="(max-width: 800px) 284px, 451px" src="public/readme/CreateNewApplicationConfig.png" alt="Create new app config"/>
@@ -53,21 +51,50 @@ http://localhost:5173/oauth/callback
 
 <sup>\*</sup>Modify the hostname and port as needed if you've changed from the defaults or are running in other modes.
 
+### CORS & Allowed Origins
+
+If you don't configure this, you may open your browser's console to see a bunch of ['CORS'](https://developer.mozilla.org/en-US/docs/Glossary/CORS) errors that say something like:
+
+```plaintext
+Cross-Origin Request Blocked: 
+The Same Origin Policy disallows reading the remote resource at 
+https://app-abc123.frontegg.com/frontegg/oauth/token.
+(Reason: CORS header ‘Access-Control-Allow-Origin’ missing). 
+Status code: 204.
+```
+
+The solution is to add your app's [origin](https://developer.mozilla.org/en-US/docs/Glossary/Origin) as an 'Allowed Origin' which lets Frontegg know that it's okay to share (potentially) sensitive information there.
+
+#### How to Configure Allowed Origins in the Frontegg Dashboard
+
+Under `Configurations` > `Keys & domains` > `Domains` tab > `Allowed Origins` section in your **Frontegg dashboard**, add your app's origin (the scheme, domain, and port parts of the url: e.g., http://localhost:5173 or https://example.com).
+
+
 ### Environment Variables
 
-`.env.Example` contains the required Frontegg config values used in the app.
+There are 3 environment variables necessary for a basic Frontegg-React integration:
+
+1. `VITE_FRONTEGG_BASE_URL`
+2. `VITE_FRONTEGG_CLIENT_ID`
+3. `VITE_FRONTEGG_APP_ID`
+
+`.env.Example` contains the required Frontegg variables used in the app that you can use by simply swapping in your actual config values for the placeholder values.
 
 To use the template,
 
 1. create a copy of the file and name it `.env`
    - Vite uses [dotenv](https://github.com/motdotla/dotenv) to automatically [load the variables in the `.env` file](https://vite.dev/guide/env-and-mode.html#env-files)<sup>\*</sup>
-2. replace the placeholder values with your Frontegg details...
-
-    There are 3 environment variables necessary for a basic Frontegg-React integration:
-
+2. replace the placeholder values with your Frontegg details:
+   1. The "Base URL" and "Client ID" values can be found in the Frontegg Dashboard under "Keys & Domains".
       1. `VITE_FRONTEGG_BASE_URL`
+         - "Keys & Domains" > "Domains" tab, in the "Frontegg Domain" section labeled as the "Domain Name"
       2. `VITE_FRONTEGG_CLIENT_ID`
+         - "Keys & Domains" > "General" tab, in the "API Key" section labeled as the "Client ID"
       3. `VITE_FRONTEGG_APP_ID`
+         - App ID's are unique per application and can be found by opening a particular Application in the Frontegg Dashboard.
+         - "Applications" > {name_of_app} > "Settings" tab labeled as the "ID"
+
+#### `.env` Template
 
 <details>
 
@@ -81,13 +108,11 @@ To use the template,
 # This is necessary for Base URL, Client ID, and App ID for the Frontegg React SDK, but take care
 # not to expose any secrets!
 #
-#
 # The "Base URL" and "Client ID" values can be found in the Frontegg Dashboard
 # under "Keys & Domains".
 #
 # "Keys & Domains" > "Domains" > "Domain Name"
-# Under "Domains" tab, in the "Frontegg Domain" section labeled as the
-# "Domain Name"
+# Under the "Domains" tab, in the "Frontegg Domain" section labeled as the "Domain Name"
 VITE_FRONTEGG_BASE_URL='https://app-rndCharsHere.frontegg.com'
 #
 # "Keys & Domains" > "General" > "Client ID"
@@ -95,12 +120,12 @@ VITE_FRONTEGG_BASE_URL='https://app-rndCharsHere.frontegg.com'
 VITE_FRONTEGG_CLIENT_ID='looks-like-a-rnd-uuid'
 #
 #
-# App ID's are unique per application and can be found under Applications in the Frontegg Dashboard.
+# App ID's are unique per application and can be found by opening a particular Application in the
+# Frontegg Dashboard.
 #
 # "Applications" > {name_of_app} > "Settings" > "App ID"
 # Under the "Settings" tab labeled as the "ID"
 VITE_FRONTEGG_APP_ID='looks-like-a-rnd-uuid-too'
-#
 ################################################################################
 ### FRONTEGG CONFIG ###
 ################################################################################
