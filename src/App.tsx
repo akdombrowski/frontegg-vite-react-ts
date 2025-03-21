@@ -1,9 +1,11 @@
-import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import fronteggLogo from "/frontegg.svg";
+import fronteggDarkLogo from "/frontegg-dark.svg";
+
 import "./App.css";
 
+import { useState } from "react";
 import { useAuth, useLoginWithRedirect } from "@frontegg/react";
 
 function App() {

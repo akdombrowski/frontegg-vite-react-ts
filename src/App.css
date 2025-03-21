@@ -11,14 +11,21 @@
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
+
 .logo.frontegg:hover {
-  filter: drop-shadow(0 0 2em #ffffffaa);
+  filter:   drop-shadow(0 0 0.1em #000000ff) drop-shadow(0 0 2em #999999aa);
+}
+
+.logo.frontegg {
+  filter: drop-shadow(0 0 0.1em #000000ff);
 }
 
 @keyframes logo-spin {
@@ -52,12 +59,10 @@
   padding-block: 2em;
 }
 
-
 .inlineEl {
   display: inline-block;
   padding-inline: 2em;
 }
-
 
 .read-the-docs {
   color: #888;

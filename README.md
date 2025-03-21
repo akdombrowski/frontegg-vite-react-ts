@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://frontegg.com" target="_blank" rel="noopener noreferrer">
-    <img width="360" height="auto" src="public/readme/running.gif" alt="App running gif">
+    <img width="360" height="auto" src="readme-assets/running.gif" alt="App running gif">
   </a>
 </p>
 
@@ -31,7 +31,7 @@ And, configure the following options:
    <summary>Creating a new application config in the dashboard</summary>
    <picture>
       <source srcset="public/readme/CreateNewApplicationConfig.webp 284w, public/readme/CreateNewApplicationConfig-2x.webp 451w" sizes="(max-width: 800px) 284px, 451px" type="image/webp" />
-      <img srcset="public/readme/CreateNewApplicationConfig.png 284w, public/readme/CreateNewApplicationConfig-2x.png 451w" sizes="(max-width: 800px) 284px, 451px" src="public/readme/CreateNewApplicationConfig.png" alt="Create new app config"/>
+      <img srcset="public/readme/CreateNewApplicationConfig.png 284w, public/readme/CreateNewApplicationConfig-2x.png 451w" sizes="(max-width: 800px) 284px, 451px" src="readme-assets/CreateNewApplicationConfig.png" alt="Create new app config"/>
     </picture>
     <br/>
     The App URL should point to wherever you'll be running this App (which with Vite's dev server is `http://localhost:5173`).
