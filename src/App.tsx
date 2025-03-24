@@ -10,8 +10,12 @@ import { useAuth, useLoginWithRedirect } from "@frontegg/react";
 function App() {
   const [count, setCount] = useState(0);
 
+  // useAuth hook to check if the current user is signed in, returning the user object if so
   const { user, isAuthenticated } = useAuth();
+  // trigger the sign-in flow with automatic redirect
+  // this allows the use of the login hook in a callback, like in the onClick event trigger of our login button
   const loginWithRedirect = useLoginWithRedirect();
+  // log the user out and try to return to current page (unauthenticated)
   const logout = () => {
     window.location.href = `${
       import.meta.env.VITE_FRONTEGG_BASE_URL
