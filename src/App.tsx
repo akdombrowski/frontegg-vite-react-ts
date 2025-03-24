@@ -61,6 +61,10 @@ function App() {
           </p>
         </div>
         <div className="inlineEl">
+          {/**
+           * If the user is authenticated, show a logout button and the current user's email, else 
+           * show a login button which redirects to the login page
+           **/}
           {isAuthenticated ?
             <>
               <button onClick={() => logout()}>Logout</button>
