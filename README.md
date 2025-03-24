@@ -9,7 +9,7 @@
 ## Vite React w/ Typescript and Frontegg
 
 This is a minimal sample app to get started with [Frontegg](https://frontegg.com) Authentication in a
-React app using [Frontegg&#39;s React SDK](https://github.com/frontegg/frontegg-react).
+React app using [Frontegg&#39;s client-side React SDK](https://github.com/frontegg/frontegg-react).
 
 The app is bootstrapped with [Vite](https://vite.dev/) and their
 [React template (with Typescript)](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts), but [Frontegg&#39;s React SDK](https://github.com/frontegg/frontegg-react) can be used in any client-side React app.
