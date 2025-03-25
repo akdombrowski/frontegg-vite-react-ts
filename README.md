@@ -90,7 +90,7 @@ To use the template,
          - App ID's are unique per application and can be found by opening a particular Application in the Frontegg Dashboard.
          - "Applications" > {name_of_app} > "Settings" tab labeled as the "ID"
 
-#### Necessary Env Vars and the `.env` file Template
+#### The `.env` file Template
 
 <details>
 
@@ -137,6 +137,7 @@ VITE_FRONTEGG_APP_ID='looks-like-a-rnd-uuid-too'
 ## Install
 
 Install required packages with npm:
+<sup>*yarn v2+ may cause some strange and seemingly unrelated errors when trying to run the app. It's currently being investigated. It's suggested to use `npm` for now</sup>
 
 ```shell
 npm install
@@ -150,7 +151,8 @@ Start the dev server as you would with any Vite React app by running:
 npm run dev
 ```
 
-In your browser, navigate to `http://localhost:5173` (or the url given by Vite from the above command).
+In your browser, navigate to `http://localhost:5173`<sup>*</sup>
+<sup>*or the url printed by Vite once running</sup>
 
 ## If Everything Goes Smoothly 🤞
 
@@ -171,8 +173,6 @@ Clicking on the `login` button should bring you to your login page, customizable
 To test it out (a.k.a. to try logging in), you'll need an **Account** with a **User**!
 
 ### Create an 'Account'
-
-#### If you haven't created an **Account** yet:
 
 1. Under `Management` > `Accounts` in the dashboard, create a new [Account](https://developers.frontegg.com/guides/management/manage-accounts/overview).
 2. Open your newly created `Account` and click on the `Applications` tab.
