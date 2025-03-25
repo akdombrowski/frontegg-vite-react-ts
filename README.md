@@ -66,29 +66,26 @@ The solution is to add your app's [origin](https://developer.mozilla.org/en-US/d
 
 Under `Configurations` > `Keys & domains` > `Domains` tab > `Allowed Origins` section in your **Frontegg dashboard**, add your app's origin (the scheme, domain, and port parts of the url: e.g., <http://localhost:5173> or <https://example.com>).
 
-### Environment Variables
+### Required Environment Variables
 
-There are 3 environment variables necessary for a basic Frontegg-React integration:
+These are the 3 environment variables **necessary** for integrating Frontegg along with where to navigate in the admin portal to find their values:
 
 1. `VITE_FRONTEGG_BASE_URL`
+   - "Keys & Domains" > "Domains" tab, in the "Frontegg Domain" section labeled as the "Domain Name"
 2. `VITE_FRONTEGG_CLIENT_ID`
+   - "Keys & Domains" > "General" tab, in the "API Key" section labeled as the "Client ID"
 3. `VITE_FRONTEGG_APP_ID`
+   - App ID's are unique per application and can be found by opening a particular Application in the Frontegg Dashboard.
+   - "Applications" > {name_of_app} > "Settings" tab labeled as the "ID"
 
 `.env.Example` contains the required Frontegg variables used in the app that you can use by simply swapping in your actual config values for the placeholder values.
 
 To use the template,
 
-1. create a copy of the file and name it `.env`
-   - Vite uses [dotenv](https://github.com/motdotla/dotenv) to automatically [load the variables in the `.env` file](https://vite.dev/guide/env-and-mode.html#env-files)<sup>\*</sup>
-2. replace the placeholder values with your Frontegg details:
-   1. The "Base URL" and "Client ID" values can be found in the Frontegg Dashboard under "Keys & Domains".
-      1. `VITE_FRONTEGG_BASE_URL`
-         - "Keys & Domains" > "Domains" tab, in the "Frontegg Domain" section labeled as the "Domain Name"
-      2. `VITE_FRONTEGG_CLIENT_ID`
-         - "Keys & Domains" > "General" tab, in the "API Key" section labeled as the "Client ID"
-      3. `VITE_FRONTEGG_APP_ID`
-         - App ID's are unique per application and can be found by opening a particular Application in the Frontegg Dashboard.
-         - "Applications" > {name_of_app} > "Settings" tab labeled as the "ID"
+- create a copy of the file and name it `.env`
+  - Vite uses [dotenv](https://github.com/motdotla/dotenv) to automatically [load the variables in the `.env` file](https://vite.dev/guide/env-and-mode.html#env-files)<sup>\*</sup>
+
+- replace the placeholder values with your Frontegg details:
 
 #### The `.env` file Template
 
