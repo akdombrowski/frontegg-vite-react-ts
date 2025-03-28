@@ -1,7 +1,7 @@
 {
   "name": "frontegg-vite-react-ts",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -29,5 +29,16 @@
     "typescript": "~5.8.2",
     "typescript-eslint": "^8.27.0",
     "vite": "^6.2.2"
-  }
+  },
+  "description": "a simple frontegg integration sample React app for authentication, authorization, OAuth/OIDC, ...",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akdombrowski/frontegg-vite-react-ts.git"
+  },
+  "engines": {
+    "node": ">=20.19"
+  },
+  "author": "Anthony Dombrowski",
+  "url": "https://frontegg.com",
+  "homepage": "https://github.com/akdombrowski/frontegg-vite-react-ts"
 }

@@ -8,40 +8,37 @@
 
 ## Vite React w/ Typescript and Frontegg
 
-This is a minimal sample app to get started with [Frontegg](https://frontegg.com) Authentication in a
-React app using [Frontegg&#39;s React SDK](https://github.com/frontegg/frontegg-react).
+This is a minimal sample app to get started with [Frontegg](https://frontegg.com) Authentication in a React app using [Frontegg&#39;s client-side React SDK](https://github.com/frontegg/frontegg-react).
 
-The app is bootstrapped with [Vite](https://vite.dev/) and their
-[React template (with Typescript)](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts), but [Frontegg&#39;s React SDK](https://github.com/frontegg/frontegg-react) can be used in any client-side React app.
+The app is bootstrapped with [Vite](https://vite.dev/) and their [React template (with Typescript)](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts), but [Frontegg&#39;s React SDK](https://github.com/frontegg/frontegg-react) can be used in any client-side React app.
 
 ## Configuring Frontegg
 
 ### Frontegg Application Configuration
 
-[Create](https://developers.frontegg.com/guides/management/multi-apps/overview#create-and-configure) or start with an existing *Frontegg Application*.
+[Create](https://developers.frontegg.com/guides/management/multi-apps/overview#create-and-configure) or start with an existing Frontegg **Application**.
+
 And, configure the following options:
 
 - **Type** = `Web`
 - **Frontend stack** = `React`
 - **App URL** = `http://localhost:5173`
-  - the url should match the url where you're app is running
-  - `http://localhost:5173` is the default url in Vite in development mode (aka `npm run dev`)
+  - the url where you're app is running
+  - `http://localhost:5173` is the default url in Vite development mode (a.k.a. when running `npm run dev`)
 
   <details>
-   <summary>Creating a new application config in the dashboard</summary>
+   <summary>ℹ️ Creating a new application config in the dashboard</summary>
    <picture>
       <source srcset="public/readme/CreateNewApplicationConfig.webp 284w, public/readme/CreateNewApplicationConfig-2x.webp 451w" sizes="(max-width: 800px) 284px, 451px" type="image/webp" />
       <img srcset="public/readme/CreateNewApplicationConfig.png 284w, public/readme/CreateNewApplicationConfig-2x.png 451w" sizes="(max-width: 800px) 284px, 451px" src="readme-assets/CreateNewApplicationConfig.png" alt="Create new app config"/>
     </picture>
     <br/>
     The App URL should point to wherever you'll be running this App (which with Vite's dev server is `http://localhost:5173`).
-    
   </details>
-
+  
 ### Don't forget to add your `redirect uri`!
 
-Under `Configurations` > `Authentication` > `Login Method` in your **Frontegg dashboard**,
-add a url back to your app.
+Under `Configurations` > `Authentication` > `Login Method` in your **Frontegg dashboard**, add a url back to your app.
 
 For example, when running in Vite dev mode<sup>\*</sup> (a.k.a `npm run dev`):
 
@@ -67,38 +64,34 @@ The solution is to add your app's [origin](https://developer.mozilla.org/en-US/d
 
 #### How to Configure Allowed Origins in the Frontegg Dashboard
 
-Under `Configurations` > `Keys & domains` > `Domains` tab > `Allowed Origins` section in your **Frontegg dashboard**, add your app's origin (the scheme, domain, and port parts of the url: e.g., http://localhost:5173 or https://example.com).
+Under `Configurations` > `Keys & domains` > `Domains` tab > `Allowed Origins` section in your **Frontegg dashboard**, add your app's origin (the scheme, domain, and port parts of the url: e.g., <http://localhost:5173> or <https://example.com>).
 
+### Required Environment Variables
 
-### Environment Variables
-
-There are 3 environment variables necessary for a basic Frontegg-React integration:
+These are the 3 environment variables **necessary** for integrating Frontegg along with where to navigate in the admin portal to find their values:
 
 1. `VITE_FRONTEGG_BASE_URL`
+   - "Keys & Domains" > "Domains" tab, in the "Frontegg Domain" section labeled as the "Domain Name"
 2. `VITE_FRONTEGG_CLIENT_ID`
+   - "Keys & Domains" > "General" tab, in the "API Key" section labeled as the "Client ID"
 3. `VITE_FRONTEGG_APP_ID`
+   - App ID's are unique per application and can be found by opening a particular Application in the Frontegg Dashboard.
+   - "Applications" > {name_of_app} > "Settings" tab labeled as the "ID"
 
 `.env.Example` contains the required Frontegg variables used in the app that you can use by simply swapping in your actual config values for the placeholder values.
 
 To use the template,
 
-1. create a copy of the file and name it `.env`
-   - Vite uses [dotenv](https://github.com/motdotla/dotenv) to automatically [load the variables in the `.env` file](https://vite.dev/guide/env-and-mode.html#env-files)<sup>\*</sup>
-2. replace the placeholder values with your Frontegg details:
-   1. The "Base URL" and "Client ID" values can be found in the Frontegg Dashboard under "Keys & Domains".
-      1. `VITE_FRONTEGG_BASE_URL`
-         - "Keys & Domains" > "Domains" tab, in the "Frontegg Domain" section labeled as the "Domain Name"
-      2. `VITE_FRONTEGG_CLIENT_ID`
-         - "Keys & Domains" > "General" tab, in the "API Key" section labeled as the "Client ID"
-      3. `VITE_FRONTEGG_APP_ID`
-         - App ID's are unique per application and can be found by opening a particular Application in the Frontegg Dashboard.
-         - "Applications" > {name_of_app} > "Settings" tab labeled as the "ID"
+- create a copy of the file and name it `.env`
+  - Vite uses [dotenv](https://github.com/motdotla/dotenv) to automatically [load the variables in the `.env` file](https://vite.dev/guide/env-and-mode.html#env-files)<sup>\*</sup>
 
-#### `.env` Template
+- replace the placeholder values with your Frontegg details:
+
+#### The `.env` file Template
 
 <details>
 
-<summary><a href=".env.example">`.env`</a> Template</summary>
+<summary>ℹ️ Expand to view <a href=".env.example">.env</a> Template</summary>
 
 ```shell
 ################################################################################
@@ -136,11 +129,12 @@ VITE_FRONTEGG_APP_ID='looks-like-a-rnd-uuid-too'
 <br/>
 
 > [!CAUTION] &nbsp;&nbsp; <sup>*</sup> The 'VITE_' prefix exposes environment variables client-side!
-> This is what we want for the 3 variables above, but be careful when adding more! And, make sure you add it to your `.gitignore` if you add any sort of secrets.
+> <details><summary>🤫 Be careful not to expose any secrets! </summary> This is what we want for the 3 variables above, but be careful when adding more! And, make sure you add it to your `.gitignore`, if using git for source control and a public repo, if you add any sort of secrets to avoid accidentally publishing.</details>
 
 ## Install
 
 Install required packages with npm:
+<sup>*yarn v2+ may cause some strange and seemingly unrelated errors when trying to run the app. It's currently being investigated. It's suggested to use `npm` for now</sup>
 
 ```shell
 npm install
@@ -154,25 +148,28 @@ Start the dev server as you would with any Vite React app by running:
 npm run dev
 ```
 
-In your browser, navigate to `http://localhost:5173` (or the url given by Vite from the above command).
+In your browser, navigate to `http://localhost:5173`<sup>*</sup>
+<sup>*or the url printed by Vite once running</sup>
 
 ## If Everything Goes Smoothly 🤞
 
-### You Should See... The Vite React Template *Plus*
-
 ![Vite](public/vite.svg) + ![React](src/assets/react.svg) + ![Frontegg](public/frontegg.svg)
 
-When you open your running app in the browser, you should something very similar to the gif at the top of this readme, i.e., the Vite React template PLUS the Frontegg logo added along with a login button.
+You should see the vite React template...  *plus a little more*
 
-## Testing out Frontegg Auth
+When you open your running app in the browser, you should land on a page that looks like the gif at the top of this readme, i.e., the Vite React template PLUS some Frontegg parts like the logo and `login` button.
 
-### Creating an Account and User to Authenticate
+*If you need help creating a Frontegg **Account** with a **User** with the **Application** assigned, check out the next section for help!
 
-You'll need an **Account** with a **User** to try Authentication (a.k.a. to try logging in)!
+Clicking on the `login` button should bring you to your login page, customizable via the [Login Box Builder](https://developers.frontegg.com/guides/login-box/intro) in the admin portal.
 
-Here's how:
+ After successfully logging in, you should be redirected back to the original page with the `login` button replaced with a `logout` button and the logged in user's email displayed.
 
-#### If you haven't created an **Account** yet:
+## Trying it Out!
+
+To test it out (a.k.a. to try logging in), you'll need an **Account** with a **User**!
+
+### Create an 'Account'
 
 1. Under `Management` > `Accounts` in the dashboard, create a new [Account](https://developers.frontegg.com/guides/management/manage-accounts/overview).
 2. Open your newly created `Account` and click on the `Applications` tab.
@@ -180,9 +177,7 @@ Here's how:
     1. Click on `Assign applications` to allow users in this **Account** to authenticate via your **Application**.[1]
     2. Select the Application configuration which you're using.
 
-Next:
-
-#### Create a new user:
+### Create a user:
 
 1. Under `Management > Users` (or on a specific **Account's** page under the `Users` tab), click the `Create user` button.[2]
    1. Make sure your app is added to the list of Applications in the create user modal. It needs to be assigned to this Account first, though, otherwise it won't be available to select.
@@ -190,12 +185,14 @@ Next:
       1. Starting from the `Users` tab of a specific **Account** connects the user to that **Account** right away.
    3. Inviting by email provides an easy way to start testing. Once you've successfully created the user, you'll receive a link to the corresponding email to activate the account.[3]
 
-### It's time to try it out!
+### Run the app and login!
+
+Run the app (e.g., `npm run dev`) and open the app in a browser where you should see a page with the three logos and some stuff below ([image shown at the top](#frontegg-vite-react-ts)).
 
 - Clicking the login button should redirect you to your Frontegg login page.
   - This is what's referred to as the "Hosted Login" (as opposed to the "Embedded Login"[4]). You can change the UI using the "Login Builder" found in the dashboard.
 
-- After successfully authenticating, you should be brought back to the app (localhost:5173),
+- After successfully authenticating, you should be brought back to the app (localhost:5173 in dev mode),
   - With a small difference indicating you've logged in!
     - The `Login` button should be replaced with a `Logout` button and the email of the user you just authenticated with.
 
@@ -233,15 +230,13 @@ If you're user does belong to an Account where the Application is linked. Find t
 [Slack Channel](https://join.slack.com/t/frontegg-community/shared_invite/zt-e1oxi1vn-SZErBZcwHcbgj4vrwRIp5A)  
 [Frontegg on GitHub](https://github.com/frontegg)
 
-### Vite
+### Minimal React Sample
 
-To help make it easier to focus on the pieces relevant for integrating Frontegg, this sample app is
-simply the Vite React (Typescript) Template with a few additions. [The Vite.dev docs](https://vite.dev/guide/#scaffolding-your-first-vite-project) are a great place to start if you want to learn more about the surrounding "non-Frontegg" pieces.
+To help make it easier to focus on the pieces relevant for integrating Frontegg, this sample app is simply the Vite React (Typescript) Template with a few additions. [The Vite.dev docs](https://vite.dev/guide/#scaffolding-your-first-vite-project) are a great place to start if you want to learn more about the surrounding "non-Frontegg" pieces.
 
 ### Other
 
 [What is OpenID Connect](https://openid.net/developers/how-connect-works/)
-
 
 [1]: https://developers.frontegg.com/guides/management/multi-apps/apps-accounts-management
 [2]: https://developers.frontegg.com/guides/management/multi-apps/apps-users-management
